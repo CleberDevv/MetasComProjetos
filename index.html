@@ -3,197 +3,80 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Site Interativo</title>
+    <title>ebdi Group</title>
     <style>
+        /* Estilos Gerais */
+        .title {
+            font-size: 35px;
+            font-weight: bold;
+            color: white;
+            text-shadow: 3px 3px 5px rgba(3, 3, 5, 0.3);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
         body {
             font-family: 'Arial', sans-serif;
             text-align: center;
             margin: 0;
             padding: 0;
             height: 100vh;
-            overflow: hidden; /* Evita rolagem */
-            background: url('images/ImgFundo.jpg') no-repeat center center fixed;
+            background: url('Imagem do WhatsApp de 2025-02-26 à(s) 13.09.43_450e0130.jpg') no-repeat center center fixed;
             background-size: cover;
             background-position: center 0px;
             transition: background 1s ease-in-out;
+            overflow: hidden;
         }
 
-        .title, .title-second {
-            font-size: clamp(20px, 4vw, 35px);  /* Ajustado o tamanho do título */
-            font-weight: bold;
-            color: white;
-            text-shadow: 5px 5px 3px rgba(3, 3, 5, 0.3);
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            margin: 50px 0;
-        }
-
-        .container, .container-second {
+        .container {
+            width: 100%;
+            height: 100%;
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
-            align-items: flex-start;
-            gap: 10px;
+            align-items: center;
             padding: 20px;
+            gap: 10px;
+            overflow-y: auto;
             box-sizing: border-box;
-            overflow: hidden;
-            height: 100%;
-            width: 100%;
         }
 
-        .card, .card-second {
-            width: 163px;  /* Largura fixa dos cards */
-            height: 163px;  /* Altura fixa dos cards */
-            padding: 8px;  /* Ajustado para dar mais espaço */
+        .card {
+            min-width: 150px;
+            padding: 15px;
             background: linear-gradient(135deg, #007bff, #0056b3);
             color: white;
-            border-radius: 5px;
+            border-radius: 4px;
             text-align: center;
-            font-size: clamp(8px, 2vw, 15px); /* Reduziu um pouco o tamanho da fonte */
+            font-size: 15px;
             box-shadow: 2px 2px 10px rgba(5, 5, 3, 0.2);
             transition: transform 0.5s ease;
-            margin-bottom: 10px;
-        }
-
-        /* Barra de progresso */
-        .progress {
-            height: 12px;  /* Diminui a altura da barra de progresso */
-            background-color: white;
-            border-radius: 5px;
-        }
-
-        .progress-bar {
-            height: 100%;
-            line-height: 12px;  /* Ajustado para o tamanho da barra */
-            text-align: center;
-            color: black;
-            font-weight: bold;
-            border-radius: 5px;
-            font-size: clamp(6px, 1.5vw, 12px); /* Ajusta o tamanho da fonte na barra */
-        }
-
-        /* Ajuste para telas muito grandes (TVs e monitores de 42" e maiores) */
-        @media (min-width: 1280px) {
-            .container {
-                justify-content: center; /* Garantir que os cards fiquem alinhados no centro */
-            }
-            .title, .title-second {
-                font-size: 25px; /* Ajuste o título para telas pequenas */
-            }
-        }
-
-        /* Ajuste para telas médias (tablets e laptops) */
-        @media (max-width: 1280px) and (min-width: 768px) {
-            .container {
-                justify-content: center; /* Garantir que os cards fiquem alinhados no centro */
-            }
-        }
-
-        /* Ajuste para telas menores (smartphones) */
-        @media (max-width: 768px) {
-            .container {
-                justify-content: center; /* Garantir que os cards fiquem alinhados no centro */
-            }
-        }
-
-        /* Ajuste para telas muito pequenas (smartphones menores) */
-        @media (max-width: 480px) {
-            .card, .card-second {
-                width: 120px; /* Ajuste de largura para telas muito pequenas */
-                height: 180px; /* Ajuste de altura para telas muito pequenas */
-            }
-
-            .title, .title-second {
-                font-size: 30px; /* Ajuste o título para telas pequenas */
-            }
         }
     </style>
 </head>
 <body>
-    <!-- Tela 1 (Metas) -->
     <div id="tela1">
         <h1 class="title">Metas🚀</h1>
-        <div class="container">
-            <p id="loading">Carregando dados...</p>
+        <div class="container" id="container1">
+            <p>Carregando dados...🚀</p>
         </div>
     </div>
-
-    <!-- Tela 2 (People Connect) -->
-    <div id="tela2" style="display: none;">
-        <h1 class="title-second">People Connect - BRQ 11/03/2025</h1>
-        <div class="container-second">
-            <p id="loading-second">Carregando dados...</p>
-        </div>
-    </div>
-
+    
     <script>
-        // Função para atualizar dados do primeiro código (Metas)
-        async function atualizarDadosTela1() {
-            const url = "https://script.googleusercontent.com/a/macros/ebdicorp.com.br/echo?user_content_key=G_9ScX35PuwKGCexm9bpEmw_8IPQdmWmQTn-VrNz-_U3AX-qF2txM_CbSPNEa143NzJ1eZhhzNrEKVreRJXGBFFbZ6bmQme0OJmA1Yb3SEsKFZqtv3DaNYcMrmhZHmUMi80zadyHLKBodCZlWePrmNSTGmQjppQ7WPL95YpS2cFVkkzFT2UdLRGFujPzjLtxoSFzFIhHOOiRGSGbf7XhdJB0KSkC6gzFPLjjR5Pqk7MTV4VowzsXNa4arxk1EEfNltqkjQscYuKagQEneoX2wQ&lib=MkqVb0B2Pj277gHbDBh6U8aNWmXF4loPg"; 
-            const container = document.querySelector('.container');
-            let congratulated = [];
-            let currentIndex = 0;
+        const urls = [
+            "https://script.googleusercontent.com/a/macros/ebdicorp.com.br/echo?user_content_key=G_9ScX35PuwKGCexm9bpEmw_8IPQdmWmQTn-VrNz-_U3AX-qF2txM_CbSPNEa143NzJ1eZhhzNrEKVreRJXGBFFbZ6bmQme0OJmA1Yb3SEsKFZqtv3DaNYcMrmhZHmUMi80zadyHLKBodCZlWePrmNSTGmQjppQ7WPL95YpS2cFVkkzFT2UdLRGFujPzjLtxoSFzFIhHOOiRGSGbf7XhdJB0KSkC6gzFPLjjR5Pqk7MTV4VowzsXNa4arxk1EEfNltqkjQscYuKagQEneoX2wQ&lib=MkqVb0B2Pj277gHbDBh6U8aNWmXF4loPg"
+        ];
+        
+        const telas = ["tela1"];
+        let indiceTela = 0;
 
+        async function atualizarDadosTela(indice) {
+            const url = urls[indice];
+            const container = document.getElementById(`container${indice + 1}`);
+            
             try {
                 const response = await fetch(url);
                 if (!response.ok) throw new Error("Erro ao acessar a API");
-
-                let data = await response.json();
-                console.log("Dados recebidos da API:", data);
-
-                if (!Array.isArray(data) || data.length === 0) {
-                    container.innerHTML = "<p>Nenhum dado encontrado.</p>";
-                    return;
-                }
-
-                data.sort((a, b) => {
-                    const percentualA = a.meta > 0 ? (a.alcancado / a.meta) * 100 : 100;
-                    const percentualB = b.meta > 0 ? (b.alcancado / b.meta) * 100 : 100;
-                    return percentualB - percentualA;
-                });
-
-                container.innerHTML = "";
-                data.forEach((item, index) => {
-                    const nome = item.nome || `P${index + 1}`;
-                    const meta = parseInt(item.meta) || 0;
-                    const alcancado = parseInt(item.alcancado) || 0;
-                    const percentual = meta > 0 ? (alcancado / meta) * 100 : 100;
-                    const percentualBarra = Math.max(1, Math.min(percentual, 100)); 
-                    const corBarra = percentual < 50 ? "#dc3545" 
-                                : percentual < 100 ? "#ffc107" 
-                                : "#28a745";
-
-                    const card = document.createElement('div');
-                    card.className = 'card';
-                    card.innerHTML = `
-                        <h3>${nome}</h3>
-                        <p>Meta: <span>${meta}</span></p>
-                        <p>Realizado: <span>${alcancado}</span></p>
-                        <div class="progress">
-                            <div class="progress-bar" style="width: ${percentualBarra}%; background: ${corBarra};">
-                                <span>${Math.round(percentual)}%</span>
-                            </div>
-                        </div>
-                    `;
-                    container.appendChild(card);
-                });
-            } catch (error) {
-                console.error("Erro ao buscar dados:", error);
-                container.innerHTML = '<p style="color:red;">Erro ao carregar dados. Verifique a API.</p>';
-            }
-        }
-
-        // Função para atualizar dados do segundo código (People Connect)
-        async function atualizarDadosTela2() {
-            const url = "https://script.google.com/macros/s/AKfycbwnVDex5KOyDJSDVuR8-8nIXVusAEQm1AvOKXdmXTNpl2rzuhkCOrYCXwZ2MuyRyjCx/exec"; 
-            const container = document.querySelector('.container-second');
-
-            try {
-                const response = await fetch(url);
-                if (!response.ok) throw new Error("Erro ao acessar a API");
-                
                 const data = await response.json();
-                console.log("Dados recebidos da API:", data);
 
                 if (!Array.isArray(data) || data.length === 0) {
                     container.innerHTML = "<p>Nenhum dado encontrado.</p>";
@@ -206,10 +89,9 @@
                     const meta = parseInt(item.meta) || 0;
                     const alcancado = parseInt(item.alcancado) || 0;
                     const percentual = meta > 0 ? (alcancado / meta) * 100 : 100;
-                    const percentualBarra = Math.max(1, Math.min(percentual, 100)); 
                     const corBarra = percentual < 50 ? "#dc3545" 
-                                : percentual < 100 ? "#ffc107" 
-                                : "#28a745";
+                                    : percentual < 100 ? "#ffc107" 
+                                    : "#28a745";
 
                     const card = document.createElement('div');
                     card.className = 'card';
@@ -218,7 +100,7 @@
                         <p>Meta: <span>${meta}</span></p>
                         <p>Realizado: <span>${alcancado}</span></p>
                         <div class="progress">
-                            <div class="progress-bar" style="width: ${percentualBarra}%; background: ${corBarra};">
+                            <div class="progress-bar" style="width: ${Math.min(percentual, 100)}%; background: ${corBarra};">
                                 <span>${Math.round(percentual)}%</span>
                             </div>
                         </div>
@@ -230,30 +112,15 @@
                 container.innerHTML = '<p style="color:red;">Erro ao carregar dados. Verifique a API.</p>';
             }
         }
-
-        // Função para alternar entre as telas
+        
         function alternarTelas() {
-            const tela1 = document.getElementById('tela1');
-            const tela2 = document.getElementById('tela2');
-
-            if (tela1.style.display === 'none') {
-                tela1.style.display = 'block';
-                tela2.style.display = 'none';
-                atualizarDadosTela1();
-                setTimeout(() => {
-                    alternarTelas();  // Troca para a segunda tela após 60 segundos
-                }, 30000);  // 30 segundos para a tela 1
-            } else {
-                tela2.style.display = 'block';
-                tela1.style.display = 'none';
-                atualizarDadosTela2();
-                setTimeout(() => {
-                    alternarTelas();  // Troca para a primeira tela após 40 segundos
-                }, 15000);  // 15 segundos para a tela 2
-            }
+            document.getElementById(telas[indiceTela]).style.display = 'none';
+            indiceTela = (indiceTela + 1) % telas.length;
+            document.getElementById(telas[indiceTela]).style.display = 'block';
+            atualizarDadosTela(indiceTela);
+            setTimeout(alternarTelas, 8000);
         }
-
-        // Inicia o ciclo de alternância ao carregar a página
+        
         document.addEventListener("DOMContentLoaded", () => {
             alternarTelas();
         });
